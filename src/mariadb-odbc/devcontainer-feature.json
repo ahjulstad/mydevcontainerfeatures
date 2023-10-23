@@ -1,0 +1,19 @@
+{
+    "name": "Install MariaDB ODBC driver",
+    "id": "mariadb-odbc",
+    "version": "0.1",
+    "description": "Installs ODBC drivers. The usecase is my testing of ODBC.jl ",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "3.1.19"
+            ],
+            "default": "3.1.19",
+            "description": "Version number"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

@@ -1,10 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "Activating feature 'hello'"
-
-GREETING=${GREETING:-undefined}
-echo "The provided greeting is: $GREETING"
+echo "Activating feature 'mariadb-odbc'"
 
 # The 'install.sh' entrypoint script is always executed as the root user.
 #
@@ -18,12 +15,7 @@ echo "The effective dev container remoteUser's home directory is '$_REMOTE_USER_
 echo "The effective dev container containerUser is '$_CONTAINER_USER'"
 echo "The effective dev container containerUser's home directory is '$_CONTAINER_USER_HOME'"
 
-cat > /usr/local/bin/hello \
-<< EOF
-#!/bin/sh
-RED='\033[0;91m'
-NC='\033[0m' # No Color
-echo "\${RED}${GREETING}, \$(whoami)!\${NC}"
-EOF
-
-chmod +x /usr/local/bin/hello
+# Inspired from  https://github.com/JuliaDatabases/ODBC.jl/blob/main/test/runtests.jl
+curl -O https://downloads.mariadb.com/Connectors/odbc/connector-odbc-3.1.19/mariadb-connector-odbc-3.1.19-ubuntu-focal-amd64.tar.gz
+mkdir -p /usr/local/lib/mariadb64
+tar xfz mariadb-connector-odbc-3.1.19-ubuntu-focal-amd64.tar.gz -C /usr/local/lib/mariadb64
