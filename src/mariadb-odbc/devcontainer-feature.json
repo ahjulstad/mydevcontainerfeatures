@@ -1,7 +1,7 @@
 {
     "name": "Install MariaDB ODBC driver",
     "id": "mariadb-odbc",
-    "version": "0.1",
+    "version": "0.0.1",
     "description": "Installs ODBC drivers. The usecase is my testing of ODBC.jl ",
     "options": {
         "version": {
